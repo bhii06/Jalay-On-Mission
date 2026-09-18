@@ -8,8 +8,8 @@ export interface MissionConfig {
 
 export const DEFAULT_CONFIG: MissionConfig = {
   phoneNumber: "6281293469964",
-  agentName: "Manusia Terfavorit",
-  commanderName: "Panglima Pusat",
+  agentName: "Indiee Cantik",
+  commanderName: "Komando Abiee",
   missionCode: "SURVIVE-AND-SLAY",
   whatsappMessage:
     "Lapor Komandan Abie! indiee kangenn banyakk bnyaaaak mauu callll. Harap segera respons laporan ini, ganti!",
@@ -23,11 +23,12 @@ export function loadMissionConfig(): MissionConfig {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return DEFAULT_CONFIG;
     const parsed = JSON.parse(raw);
-    if (parsed.phoneNumber === "628129469964" || parsed.phoneNumber === "08129469964") {
-      parsed.phoneNumber = DEFAULT_CONFIG.phoneNumber;
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...DEFAULT_CONFIG, ...parsed }));
-    }
-    return { ...DEFAULT_CONFIG, ...parsed };
+    return {
+      ...DEFAULT_CONFIG,
+      ...parsed,
+      agentName: "Indiee Cantik",
+      commanderName: "Komando Abiee",
+    };
   } catch {
     return DEFAULT_CONFIG;
   }

@@ -18,7 +18,7 @@ interface MissionBriefingProps {
   missionCode: string;
   phoneNumber: string;
   whatsappMessage: string;
-  onOpenSettings: () => void;
+  onOpenSettings?: () => void;
 }
 
 export default function MissionBriefing({
@@ -27,7 +27,6 @@ export default function MissionBriefing({
   missionCode,
   phoneNumber,
   whatsappMessage,
-  onOpenSettings,
 }: MissionBriefingProps) {
   return (
     <div className="w-full max-w-5xl mx-auto px-3 sm:px-6 md:px-8 py-4 sm:py-6 flex flex-col items-center select-none">
@@ -68,17 +67,17 @@ export default function MissionBriefing({
             <div className="bg-pink-50/95 border border-pink-200/90 rounded-2xl p-5 sm:p-6 shadow-sm relative">
               <div className="flex items-center gap-2.5 text-pink-800 font-sans font-bold text-base sm:text-lg mb-3">
                 <Crown className="w-5 h-5 text-pink-500 shrink-0" />
-                <span>Pesan {commanderName || "Panglima Pusat"}</span>
+                <span>Pesan {commanderName || "Komando Abiee"}</span>
               </div>
               <p className="text-pink-950 text-sm sm:text-base leading-relaxed mb-3 font-sans">
-                Kamu hebat banget ciii, <strong className="text-pink-700 font-bold">{agentName}</strong>. Makasih ya udah selalu kasih yang terbaik buat semuanya. Tetep jadi indie yang baik hati, semangaatt terus yaaa, tapi jangan lupa istirahat kalau lagi capek."
+                Kamu hebat banget ciii, <strong className="text-pink-700 font-bold">{agentName}</strong>. Makasih ya udah selalu kasih yang terbaik buat semuanya. Tetep jadi indie yang baik hati, semangaatt terus yaaa, tapi jangan lupa istirahat kalau lagi capek.
               </p>
               <p className="text-pink-950 text-sm sm:text-base leading-relaxed mb-4 font-sans">
                 Holding your hand through this journey makes me so proud. Never doubt that I’ll always be your safest place and biggest supporter, Always ♡
               </p>
               <div className="text-right">
                 <span className="font-handwritten text-2xl sm:text-3xl font-bold text-pink-600">
-                  Always, {commanderName || "Your Partner"} ♡
+                  Always, {commanderName || "Komando Abiee"} ♡
                 </span>
               </div>
             </div>

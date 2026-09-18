@@ -87,7 +87,7 @@ export default function DossierSeal({
           Berkas Terenkripsi Ditemukan
         </h2>
         <p className="text-slate-600 text-xs sm:text-sm font-sans">
-          Berisi pesan penting untuk <span className="text-pink-600 font-bold font-handwritten text-lg">Agen {agentName || "Terfavorit"}</span> dari markas pusat.
+          Berisi pesan penting untuk <span className="text-pink-600 font-bold font-handwritten text-lg">Agen {agentName || "Indiee Cantik"}</span> dari markas pusat.
         </p>
       </div>
 

@@ -6,7 +6,6 @@ import HeaderNav from "@/components/HeaderNav";
 import BiometricScanner from "@/components/BiometricScanner";
 import DossierSeal from "@/components/DossierSeal";
 import MissionBriefing from "@/components/MissionBriefing";
-import MissionSettingsModal from "@/components/MissionSettingsModal";
 import {
   MissionConfig,
   DEFAULT_CONFIG,
@@ -17,16 +16,11 @@ export default function Home() {
   const [stage, setStage] = useState<0 | 1 | 2>(0);
   const [config, setConfig] = useState<MissionConfig>(DEFAULT_CONFIG);
   const [isMounted, setIsMounted] = useState(false);
-  const [settingsOpen, setSettingsOpen] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
     setConfig(loadMissionConfig());
   }, []);
-
-  const handleConfigChange = (newConfig: MissionConfig) => {
-    setConfig(newConfig);
-  };
 
   if (!isMounted) {
     return (
@@ -40,7 +34,6 @@ export default function Home() {
     <div className="relative min-h-dvh w-full flex flex-col justify-between cozy-detective-bg overflow-x-hidden">
       {/* Universal Header Nav */}
       <HeaderNav
-        onOpenSettings={() => setSettingsOpen(true)}
         onNavigateHome={() => setStage(0)}
       />
 
@@ -99,19 +92,11 @@ export default function Home() {
                 missionCode={config.missionCode}
                 phoneNumber={config.phoneNumber}
                 whatsappMessage={config.whatsappMessage}
-                onOpenSettings={() => setSettingsOpen(true)}
               />
             </motion.div>
           )}
         </AnimatePresence>
       </main>
-
-      {/* Settings Modal (Controlled by Header or Sidebar) */}
-      <MissionSettingsModal
-        isOpen={settingsOpen}
-        onClose={() => setSettingsOpen(false)}
-        onConfigChange={handleConfigChange}
-      />
 
       {/* Subtle Footer */}
       <footer className="w-full py-4 text-center text-[11px] font-sans text-pink-900/60 z-20">

@@ -116,7 +116,7 @@ export default function BiometricScanner({ agentName, onSuccess }: BiometricScan
         </motion.div>
 
         <p className="text-slate-600 text-xs sm:text-sm font-sans max-w-md mt-2 leading-relaxed">
-          Markas komando telah menyiapkan dokumen rahasia harian khusus untuk <span className="text-pink-600 font-bold">Agen {agentName || "Terfavorit"}</span>. Verifikasi sidik jarimu di samping untuk membuka akses berkas! 📁✨
+          Markas komando telah menyiapkan dokumen rahasia harian khusus untuk <span className="text-pink-600 font-bold">Agen {agentName || "Indiee Cantik"}</span>. Verifikasi sidik jarimu di samping untuk membuka akses berkas! 📁✨
         </p>
       </motion.div>
 
@@ -235,7 +235,7 @@ export default function BiometricScanner({ agentName, onSuccess }: BiometricScan
 
           {/* "Ready? Agen [Name] ♡" handwritten text */}
           <span className="font-handwritten text-base sm:text-lg font-bold text-pink-600 whitespace-nowrap text-center">
-            Ready? Agen {agentName || "Terfavorit"} ♡
+            Ready? Agen {agentName || "Indiee Cantik"} ♡
           </span>
         </div>
 
