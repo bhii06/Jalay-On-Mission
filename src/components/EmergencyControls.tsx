@@ -348,11 +348,11 @@ export default function EmergencyControls({
                   </div>
 
                   <span className="text-[11px] font-mono font-bold tracking-widest text-pink-700 uppercase px-3 py-1 border border-pink-300 rounded-full bg-pink-100/90 mb-3">
-                    PENYELAMATAN BERHASIL // MELEDAK JADI CINTA 🎆💖
+                    PENYELAMATAN BERHASIL🎆💖
                   </span>
 
                   <h3 className="text-xl font-sans font-black text-pink-950 mb-2">
-                    Penghancuran Meledak Jadi Cinta! 🎆💖
+                    Penghancuran Meledak! 🎆💖
                   </h3>
 
                   <p className="text-xs sm:text-sm font-sans text-pink-950 leading-relaxed bg-pink-50/90 p-4 rounded-2xl border border-pink-200/90 my-4 shadow-inner">
