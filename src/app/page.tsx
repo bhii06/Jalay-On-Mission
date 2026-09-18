@@ -1,69 +1,122 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import HeaderNav from "@/components/HeaderNav";
+import BiometricScanner from "@/components/BiometricScanner";
+import DossierSeal from "@/components/DossierSeal";
+import MissionBriefing from "@/components/MissionBriefing";
+import MissionSettingsModal from "@/components/MissionSettingsModal";
+import {
+  MissionConfig,
+  DEFAULT_CONFIG,
+  loadMissionConfig,
+} from "@/lib/missionConfig";
 
 export default function Home() {
+  const [stage, setStage] = useState<0 | 1 | 2>(0);
+  const [config, setConfig] = useState<MissionConfig>(DEFAULT_CONFIG);
+  const [isMounted, setIsMounted] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    setConfig(loadMissionConfig());
+  }, []);
+
+  const handleConfigChange = (newConfig: MissionConfig) => {
+    setConfig(newConfig);
+  };
+
+  if (!isMounted) {
+    return (
+      <div className="min-h-dvh flex items-center justify-center bg-[#0b0f19] text-rose-300 font-mono text-xs">
+        MEMUAT DOKUMEN RAHASIA... 🕶️
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="relative min-h-dvh w-full flex flex-col justify-between cozy-detective-bg overflow-x-hidden">
+      {/* Universal Header Nav */}
+      <HeaderNav
+        onOpenSettings={() => setSettingsOpen(true)}
+        onNavigateHome={() => setStage(0)}
+      />
+
+      {/* Main Staged Flow */}
+      <main className="w-full flex-1 flex flex-col items-center justify-center py-2 sm:py-6 px-1 sm:px-4 z-10">
+        <AnimatePresence mode="wait">
+          {/* SCREEN 1: Security Clearance */}
+          {stage === 0 && (
+            <motion.div
+              key="stage-0"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.04, filter: "blur(3px)" }}
+              transition={{ duration: 0.35 }}
+              className="w-full"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <BiometricScanner
+                agentName={config.agentName}
+                onSuccess={() => setStage(1)}
+              />
+            </motion.div>
+          )}
+
+          {/* SCREEN 2: Dossier Seal */}
+          {stage === 1 && (
+            <motion.div
+              key="stage-1"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, filter: "blur(3px)" }}
+              transition={{ duration: 0.35 }}
+              className="w-full"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+              <DossierSeal
+                agentName={config.agentName}
+                missionCode={config.missionCode}
+                onOpenDossier={() => setStage(2)}
+                onBack={() => setStage(0)}
+              />
+            </motion.div>
+          )}
+
+          {/* SCREEN 3: Mission Briefing Dashboard */}
+          {stage === 2 && (
+            <motion.div
+              key="stage-2"
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="w-full"
+            >
+              <MissionBriefing
+                agentName={config.agentName}
+                commanderName={config.commanderName}
+                missionCode={config.missionCode}
+                phoneNumber={config.phoneNumber}
+                whatsappMessage={config.whatsappMessage}
+                onOpenSettings={() => setSettingsOpen(true)}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
+
+      {/* Settings Modal (Controlled by Header or Sidebar) */}
+      <MissionSettingsModal
+        isOpen={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+        onConfigChange={handleConfigChange}
+      />
+
+      {/* Subtle Footer */}
+      <footer className="w-full py-4 text-center text-[11px] font-sans text-slate-500 z-20">
+        Markas Komando Rahasia &bull; Special Mission for My Favorite Partner ♡
+      </footer>
     </div>
   );
 }

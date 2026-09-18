@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0b0f19;
+    --foreground: #f8fafc;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    background-color: #0b0f19;
+    color: #f8fafc;
+    min-height: 100dvh;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.font-handwritten {
+  font-family: var(--font-caveat), cursive;
+}
+
+/* Cozy Midnight Detective Room Background */
+.cozy-detective-bg {
+  background-color: #0b0f19;
+  background-image: 
+    radial-gradient(circle at 20% 25%, rgba(245, 158, 11, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(56, 189, 248, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 50% 85%, rgba(244, 63, 94, 0.05) 0%, transparent 50%),
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px;
+}
+
+/* Authentic Cream Manila Paper Styling */
+.manila-paper {
+  background-color: #fcf9f2;
+  color: #1e293b;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(226, 218, 196, 0.8),
+    inset 0 1px 3px rgba(255, 255, 255, 0.9);
+}
+
+/* Realistic Slanted Red Rubber Stamp */
+.stamp-top-secret {
+  border: 4px solid #dc2626;
+  color: #dc2626;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  transform: rotate(-7deg);
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 6px;
+  box-shadow: 
+    inset 0 0 0 2px rgba(220, 38, 38, 0.2),
+    0 4px 10px rgba(220, 38, 38, 0.25);
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0.8) 100%);
+}
+
+/* Washi Tape styling */
+.washi-tape {
+  background: rgba(254, 240, 138, 0.85);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  border-left: 2px dashed rgba(202, 138, 4, 0.3);
+  border-right: 2px dashed rgba(202, 138, 4, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
 }
