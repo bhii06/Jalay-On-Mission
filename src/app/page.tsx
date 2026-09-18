@@ -30,7 +30,7 @@ export default function Home() {
 
   if (!isMounted) {
     return (
-      <div className="min-h-dvh flex items-center justify-center bg-[#0b0f19] text-rose-300 font-mono text-xs">
+      <div className="min-h-dvh flex items-center justify-center bg-[#fdf2f4] text-pink-600 font-mono text-xs">
         MEMUAT DOKUMEN RAHASIA... 🕶️
       </div>
     );
@@ -114,7 +114,7 @@ export default function Home() {
       />
 
       {/* Subtle Footer */}
-      <footer className="w-full py-4 text-center text-[11px] font-sans text-slate-500 z-20">
+      <footer className="w-full py-4 text-center text-[11px] font-sans text-pink-900/60 z-20">
         Markas Komando Rahasia &bull; Special Mission for My Favorite Partner ♡
       </footer>
     </div>

@@ -36,9 +36,9 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${plusJakartaSans.variable} ${caveat.variable} h-full antialiased dark`}
+      className={`${plusJakartaSans.variable} ${caveat.variable} h-full antialiased`}
     >
-      <body className="min-h-dvh flex flex-col bg-[#0b0f19] text-slate-100 selection:bg-rose-500/30 selection:text-rose-200 font-sans">
+      <body className="min-h-dvh flex flex-col bg-[#fdf2f4] text-slate-800 selection:bg-pink-300 selection:text-pink-950 font-sans">
         {children}
       </body>
     </html>

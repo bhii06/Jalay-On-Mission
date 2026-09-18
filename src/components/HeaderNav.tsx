@@ -30,14 +30,14 @@ export default function HeaderNav({ onOpenSettings, onNavigateHome }: HeaderNavP
         onClick={onNavigateHome}
         className="flex items-center gap-2.5 cursor-pointer group select-none"
       >
-        <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-700/80 flex items-center justify-center text-lg shadow-md group-hover:scale-105 transition-transform shrink-0">
+        <div className="w-9 h-9 rounded-xl bg-pink-100 border border-pink-200/90 flex items-center justify-center text-lg shadow-sm group-hover:scale-105 transition-transform shrink-0">
           🐱
         </div>
         <div className="flex flex-col">
-          <span className="font-sans font-bold text-sm tracking-tight text-white leading-none">
+          <span className="font-sans font-bold text-sm tracking-tight text-pink-950 leading-none">
             Jalay on
           </span>
-          <span className="font-sans font-bold text-sm tracking-tight text-slate-300 leading-none mt-0.5">
+          <span className="font-sans font-bold text-sm tracking-tight text-pink-600 leading-none mt-0.5">
             Mission
           </span>
         </div>
@@ -50,9 +50,9 @@ export default function HeaderNav({ onOpenSettings, onNavigateHome }: HeaderNavP
           type="button"
           onClick={() => setHeartLiked(!heartLiked)}
           title="Kirim Cinta ke Panglima"
-          className="w-9 h-9 rounded-xl bg-slate-900/80 border border-slate-700/60 flex items-center justify-center text-rose-400 hover:text-rose-300 hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm"
+          className="w-9 h-9 rounded-xl bg-white/90 hover:bg-pink-50 border border-pink-200/80 flex items-center justify-center text-pink-500 hover:text-pink-600 hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm"
         >
-          <Heart className={`w-4 h-4 ${heartLiked ? "fill-rose-500 text-rose-500" : ""}`} />
+          <Heart className={`w-4 h-4 ${heartLiked ? "fill-pink-500 text-pink-500" : ""}`} />
         </button>
 
         {/* Sound Toggle */}
@@ -60,9 +60,9 @@ export default function HeaderNav({ onOpenSettings, onNavigateHome }: HeaderNavP
           type="button"
           onClick={handleToggleSound}
           title={soundOn ? "Audio Taktis: Aktif" : "Audio Taktis: Mute"}
-          className="w-9 h-9 rounded-xl bg-slate-900/80 border border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-slate-200 hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm"
+          className="w-9 h-9 rounded-xl bg-white/90 hover:bg-pink-50 border border-pink-200/80 flex items-center justify-center text-pink-600 hover:text-pink-700 hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm"
         >
-          {soundOn ? <Volume2 className="w-4 h-4 text-emerald-400" /> : <VolumeX className="w-4 h-4 text-slate-500" />}
+          {soundOn ? <Volume2 className="w-4 h-4 text-emerald-500" /> : <VolumeX className="w-4 h-4 text-pink-300" />}
         </button>
 
         {/* Settings Button */}
@@ -71,7 +71,7 @@ export default function HeaderNav({ onOpenSettings, onNavigateHome }: HeaderNavP
             type="button"
             onClick={onOpenSettings}
             title="Pengaturan Markas Pusat"
-            className="w-9 h-9 rounded-xl bg-slate-900/80 border border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-slate-200 hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm"
+            className="w-9 h-9 rounded-xl bg-white/90 hover:bg-pink-50 border border-pink-200/80 flex items-center justify-center text-pink-600 hover:text-pink-800 hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm"
           >
             <Settings className="w-4 h-4" />
           </button>

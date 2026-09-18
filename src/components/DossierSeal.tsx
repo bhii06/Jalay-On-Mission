@@ -36,7 +36,7 @@ export default function DossierSeal({
         <button
           type="button"
           onClick={onBack}
-          className="flex items-center gap-2 text-slate-300 hover:text-white font-sans text-xs sm:text-sm font-semibold transition-colors cursor-pointer group"
+          className="flex items-center gap-2 text-pink-700 hover:text-pink-950 font-sans text-xs sm:text-sm font-semibold transition-colors cursor-pointer group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           <span>Kembali</span>
@@ -47,10 +47,10 @@ export default function DossierSeal({
       <div className="relative flex flex-col items-center justify-center my-2 max-w-md w-full">
         {/* Handwritten Annotation + Doodle Arrow on Top Right */}
         <div className="absolute -top-6 right-0 sm:-right-10 z-20 hidden sm:flex flex-col items-end pointer-events-none">
-          <span className="font-handwritten text-lg sm:text-2xl text-slate-200 font-bold rotate-6">
+          <span className="font-handwritten text-lg sm:text-2xl text-pink-800 font-bold rotate-6">
             Berkas Terenkripsi Ditemukan ✨
           </span>
-          <span className="text-xl text-slate-400 rotate-12 -mt-1 mr-4">⤵</span>
+          <span className="text-xl text-pink-400 rotate-12 -mt-1 mr-4">⤵</span>
         </div>
 
         {/* 3D Manila Folder Illustration */}
@@ -62,7 +62,7 @@ export default function DossierSeal({
             y: 0,
           }}
           transition={{ duration: 0.4 }}
-          className="relative w-full max-w-[280px] sm:max-w-sm h-52 sm:h-72 rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60"
+          className="relative w-full max-w-[280px] sm:max-w-sm h-52 sm:h-72 rounded-2xl overflow-hidden shadow-2xl shadow-pink-200/50 border-2 border-pink-200/80"
         >
           <Image
             src="/top_secret_folder.jpg"
@@ -83,11 +83,11 @@ export default function DossierSeal({
 
       {/* Title & Subtext */}
       <div className="text-center mt-6 mb-8 max-w-md">
-        <h2 className="text-2xl sm:text-3xl font-sans font-bold text-white tracking-tight mb-2">
+        <h2 className="text-2xl sm:text-3xl font-sans font-bold text-pink-950 tracking-tight mb-2">
           Berkas Terenkripsi Ditemukan
         </h2>
-        <p className="text-slate-400 text-xs sm:text-sm font-sans">
-          Berisi pesan penting untuk <span className="text-rose-300 font-semibold font-handwritten text-base">Agen {agentName || "Terfavorit"}</span> dari markas pusat.
+        <p className="text-slate-600 text-xs sm:text-sm font-sans">
+          Berisi pesan penting untuk <span className="text-pink-600 font-bold font-handwritten text-lg">Agen {agentName || "Terfavorit"}</span> dari markas pusat.
         </p>
       </div>
 
@@ -98,7 +98,7 @@ export default function DossierSeal({
         whileTap={{ scale: 0.96 }}
         onClick={handleOpen}
         disabled={isOpening}
-        className="min-h-[50px] px-8 py-3.5 rounded-full bg-gradient-to-r from-indigo-500 via-indigo-600 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white font-sans font-bold text-sm tracking-wide flex items-center justify-center gap-2.5 shadow-xl shadow-indigo-950/60 cursor-pointer border border-indigo-300/30 transition-all"
+        className="min-h-[50px] px-8 py-3.5 rounded-full bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 hover:from-pink-400 hover:to-rose-400 text-white font-sans font-bold text-sm tracking-wide flex items-center justify-center gap-2.5 shadow-xl shadow-pink-300/60 cursor-pointer border border-pink-200/50 transition-all"
       >
         <span>{isOpening ? "Membuka Berkas..." : "Buka Segel Berkas"}</span>
         <ArrowRight className="w-4 h-4" />

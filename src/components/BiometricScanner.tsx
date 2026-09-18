@@ -96,27 +96,27 @@ export default function BiometricScanner({ agentName, onSuccess }: BiometricScan
         className="flex-1 w-full flex flex-col items-center lg:items-start text-center lg:text-left"
       >
         {/* Big Stylized Title */}
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-3">
-          <span className="font-handwritten text-4xl sm:text-6xl text-rose-300 font-bold block mb-1">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-pink-950 tracking-tight leading-tight mb-3">
+          <span className="font-handwritten text-4xl sm:text-6xl text-pink-500 font-bold block mb-1">
             Jalay on Mission:
           </span>
-          <span className="bg-gradient-to-r from-white via-slate-100 to-rose-100 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-pink-950 via-rose-900 to-pink-700 bg-clip-text text-transparent">
             Daily Mood Booster
           </span>
-          <span className="text-rose-400 ml-2">♡</span>
+          <span className="text-pink-500 ml-2">♡</span>
         </h1>
 
         {/* Speech Bubble / Tape Note */}
         <motion.div
           initial={{ rotate: -2 }}
           whileHover={{ rotate: 0, scale: 1.02 }}
-          className="washi-tape text-amber-950 font-handwritten text-lg sm:text-xl font-bold px-6 py-2.5 rounded-md shadow-lg my-4 max-w-md inline-block"
+          className="washi-tape text-amber-950 font-handwritten text-lg sm:text-xl font-bold px-6 py-2.5 rounded-md shadow-md my-4 max-w-md inline-block"
         >
           “Because your smile is the fuel that keeps my fire burning through the toughest days. ♡”
         </motion.div>
 
-        <p className="text-slate-400 text-xs sm:text-sm font-sans max-w-md mt-2 leading-relaxed">
-          Markas komando telah menyiapkan dokumen rahasia harian khusus untuk <span className="text-rose-300 font-semibold">Agen {agentName || "Terfavorit"}</span>. Verifikasi sidik jarimu di samping untuk membuka akses berkas! 📁✨
+        <p className="text-slate-600 text-xs sm:text-sm font-sans max-w-md mt-2 leading-relaxed">
+          Markas komando telah menyiapkan dokumen rahasia harian khusus untuk <span className="text-pink-600 font-bold">Agen {agentName || "Terfavorit"}</span>. Verifikasi sidik jarimu di samping untuk membuka akses berkas! 📁✨
         </p>
       </motion.div>
 
@@ -125,28 +125,28 @@ export default function BiometricScanner({ agentName, onSuccess }: BiometricScan
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="w-full max-w-md flex flex-col items-center justify-center p-5 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl shadow-2xl relative overflow-hidden"
+        className="w-full max-w-md flex flex-col items-center justify-center p-5 sm:p-8 rounded-3xl bg-white/90 border border-pink-200/90 shadow-2xl shadow-pink-200/40 backdrop-blur-xl relative overflow-hidden"
       >
         {/* Top Security Clearance Badge */}
         <div className="mb-4">
-          <span className="px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full border border-red-500/60 bg-red-950/30 text-red-400 font-mono text-[10px] sm:text-[11px] font-bold tracking-widest uppercase shadow-sm">
+          <span className="px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full border border-pink-300 bg-pink-50 text-pink-700 font-mono text-[10px] sm:text-[11px] font-bold tracking-widest uppercase shadow-sm">
             [ RESTRICTED ACCESS LEVEL 5 ]
           </span>
         </div>
 
         {/* Heading & Subtext */}
-        <h2 className="text-lg sm:text-2xl font-sans font-bold text-white tracking-tight mb-1 text-center">
+        <h2 className="text-lg sm:text-2xl font-sans font-bold text-pink-950 tracking-tight mb-1 text-center">
           Scan Fingerprint to Continue
         </h2>
-        <p className="text-slate-400 text-xs font-sans text-center mb-5 sm:mb-6 max-w-xs">
+        <p className="text-slate-500 text-xs font-sans text-center mb-5 sm:mb-6 max-w-xs">
           Tekan dan tahan selama 3 detik untuk membuka misi hari ini.
         </p>
 
-        {/* Concentric Neon Cyan Circular Scanner */}
+        {/* Concentric Neon Pink Circular Scanner */}
         <div className="relative flex items-center justify-center my-2 sm:my-3">
           {/* Outer Ripple Ring */}
           <div
-            className={`absolute w-44 h-44 sm:w-52 sm:h-52 rounded-full border border-cyan-500/20 transition-all duration-500 ${isScanning ? "scale-110 border-cyan-400/40 animate-ping" : ""
+            className={`absolute w-44 h-44 sm:w-52 sm:h-52 rounded-full border border-pink-300/50 transition-all duration-500 ${isScanning ? "scale-110 border-pink-400/80 animate-ping" : ""
               }`}
           />
 
@@ -155,8 +155,8 @@ export default function BiometricScanner({ agentName, onSuccess }: BiometricScan
             className={`absolute w-36 h-36 sm:w-44 sm:h-44 rounded-full border-2 border-dashed transition-all duration-300 ${isVerified
                 ? "border-emerald-400/80 rotate-45"
                 : isScanning
-                  ? "border-cyan-400/80 animate-spin"
-                  : "border-cyan-500/30"
+                  ? "border-pink-500/90 animate-spin"
+                  : "border-pink-300/80"
               }`}
             style={{ animationDuration: "8s" }}
           />
@@ -173,10 +173,10 @@ export default function BiometricScanner({ agentName, onSuccess }: BiometricScan
             onTouchCancel={() => stopScanning(true)}
             disabled={isVerified}
             className={`w-28 h-28 sm:w-36 sm:h-36 rounded-full flex flex-col items-center justify-center cursor-pointer transition-all duration-200 touch-none focus:outline-none relative overflow-hidden ${isVerified
-                ? "bg-emerald-950/80 border-2 border-emerald-400 shadow-[0_0_35px_rgba(52,211,153,0.5)] scale-105"
+                ? "bg-emerald-50 border-2 border-emerald-400 shadow-[0_0_35px_rgba(52,211,153,0.4)] scale-105"
                 : isScanning
-                  ? "bg-cyan-950/80 border-2 border-cyan-400 shadow-[0_0_35px_rgba(34,211,238,0.5)] scale-105"
-                  : "bg-slate-900/90 border-2 border-cyan-500/40 hover:border-cyan-400/80 shadow-[0_0_20px_rgba(34,211,238,0.15)] active:scale-95"
+                  ? "bg-pink-100 border-2 border-pink-500 shadow-[0_0_35px_rgba(244,63,94,0.35)] scale-105"
+                  : "bg-pink-50/90 border-2 border-pink-300 hover:border-pink-400 shadow-[0_0_20px_rgba(244,114,182,0.25)] active:scale-95"
               }`}
           >
             {/* Laser Line when Scanning */}
@@ -186,7 +186,7 @@ export default function BiometricScanner({ agentName, onSuccess }: BiometricScan
                   initial={{ y: -50 }}
                   animate={{ y: [-45, 45, -45] }}
                   transition={{ repeat: Infinity, duration: 1.1, ease: "easeInOut" }}
-                  className="absolute w-24 sm:w-28 h-1 bg-gradient-to-r from-transparent via-cyan-300 to-transparent shadow-[0_0_12px_#22d3ee] z-20 pointer-events-none"
+                  className="absolute w-24 sm:w-28 h-1 bg-gradient-to-r from-transparent via-pink-500 to-transparent shadow-[0_0_12px_#ec4899] z-20 pointer-events-none"
                 />
               )}
             </AnimatePresence>
@@ -196,19 +196,19 @@ export default function BiometricScanner({ agentName, onSuccess }: BiometricScan
               <motion.div
                 initial={{ scale: 0.5 }}
                 animate={{ scale: 1 }}
-                className="flex flex-col items-center text-emerald-400 p-1"
+                className="flex flex-col items-center text-emerald-600 p-1"
               >
                 <CheckCircle2 className="w-12 h-12 sm:w-16 sm:h-16" />
-                <span className="text-[9px] sm:text-[10px] font-mono font-bold tracking-wider mt-1 text-emerald-300 text-center">
+                <span className="text-[9px] sm:text-[10px] font-mono font-bold tracking-wider mt-1 text-emerald-700 text-center">
                   AGEN {agentName.toUpperCase()} VERIFIED!
                 </span>
               </motion.div>
             ) : (
-              <div className="flex flex-col items-center text-cyan-400">
+              <div className="flex flex-col items-center text-pink-500">
                 <Fingerprint
                   className={`w-12 h-12 sm:w-16 sm:h-16 transition-all duration-200 ${isScanning
-                      ? "text-cyan-300 drop-shadow-[0_0_12px_#22d3ee]"
-                      : "text-cyan-400/80"
+                      ? "text-pink-600 drop-shadow-[0_0_12px_#f43f5e]"
+                      : "text-pink-400"
                     }`}
                 />
               </div>
@@ -220,21 +220,21 @@ export default function BiometricScanner({ agentName, onSuccess }: BiometricScan
         <div className="w-full mt-5 sm:mt-6 flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3">
           <div className="w-full flex-1 flex items-center gap-2.5">
             {/* Pill Progress Bar */}
-            <div className="flex-1 bg-slate-950 border border-slate-800 rounded-full h-3.5 sm:h-4 overflow-hidden p-0.5 relative shadow-inner">
+            <div className="flex-1 bg-pink-100/70 border border-pink-200 rounded-full h-3.5 sm:h-4 overflow-hidden p-0.5 relative shadow-inner">
               <motion.div
-                className={`h-full rounded-full transition-all duration-75 ${isVerified ? "bg-emerald-400" : "bg-gradient-to-r from-cyan-500 to-blue-500"
+                className={`h-full rounded-full transition-all duration-75 ${isVerified ? "bg-emerald-400" : "bg-gradient-to-r from-pink-400 via-rose-400 to-pink-500"
                   }`}
                 style={{ width: `${progress}%` }}
               />
             </div>
 
-            <span className="text-xs font-mono font-bold text-cyan-300 min-w-[34px] text-right">
+            <span className="text-xs font-mono font-bold text-pink-700 min-w-[34px] text-right">
               {progress}%
             </span>
           </div>
 
           {/* "Ready? Agen [Name] ♡" handwritten text */}
-          <span className="font-handwritten text-base sm:text-lg font-bold text-rose-300 whitespace-nowrap text-center">
+          <span className="font-handwritten text-base sm:text-lg font-bold text-pink-600 whitespace-nowrap text-center">
             Ready? Agen {agentName || "Terfavorit"} ♡
           </span>
         </div>
@@ -246,9 +246,9 @@ export default function BiometricScanner({ agentName, onSuccess }: BiometricScan
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="mt-3 flex items-center gap-1.5 text-amber-300 bg-amber-950/60 border border-amber-500/40 px-3 py-1.5 rounded-lg text-xs font-sans"
+              className="mt-3 flex items-center gap-1.5 text-amber-800 bg-amber-50 border border-amber-300 px-3 py-1.5 rounded-lg text-xs font-sans"
             >
-              <AlertCircle className="w-4 h-4 shrink-0 text-amber-400" />
+              <AlertCircle className="w-4 h-4 shrink-0 text-amber-600" />
               <span>{errorNotice}</span>
             </motion.div>
           )}
